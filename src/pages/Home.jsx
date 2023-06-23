@@ -5,7 +5,7 @@ import { AxiosRequest } from '../utils/utils'
 import ScaleLoader from 'react-spinners/ScaleLoader'
 export const Home = () => {
   let [loading, setLoading] = useState(false);
-  let bool = false;
+  let [bool,setBool] = useState(false)
   let [color, setColor] = useState("#000");
   let [error,setError] = useState('')
   let [name,setName] = useState('')
@@ -22,12 +22,12 @@ export const Home = () => {
   let AddTask = async () => {
       try {
         setLoading(true)
-        bool = true
+        setBool(true)
         let res = await AxiosRequest.post('/',{name : name});
         setName('')
         res.data && setLoading(false)
         allTask()
-        bool = false
+        setBool(false)
       } catch (error) {
         setError(error.response.data)
         error.response.data === 'please fill the fields!' ? Setter(1000) : Setter(3000)
@@ -37,6 +37,7 @@ export const Home = () => {
     setTimeout(() => {
       setError('')
       setLoading(false)
+      setBool(false)
     },timer)
   }
   return (
