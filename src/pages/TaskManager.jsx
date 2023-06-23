@@ -31,7 +31,7 @@ export const TaskManager = ({task}) => {
                 <li onClick={DeleteTask} className='p-1 ml-2 rounded-md hover:bg-black/10 cursor-pointer border-solid border-[1px] hover:border-red-800 group'><MdDelete className='group-hover:text-red-800' /></li>
             </ul>
         </li>
-        {res && <Alert severity="warning" className='absolute xs:text-xs md:text-sm top-10 xs:w-11/12 md:w-3/12 xs:left-3 md:right-10 text-center flex items-center justify-center'>{res}</Alert>}
+        {res && <Alert severity="warning" className='absolute xs:text-xs md:text-sm top-10 xs:w-9/12 md:w-3/12 xs:left-10 md:right-10 text-center flex items-center justify-center'>{res}</Alert>}
     </ul>
   )
 }
