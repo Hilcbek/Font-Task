@@ -47,7 +47,7 @@ export const EditPage = () => {
             </div></>) }
             <button disabled={loading} onClick={EditTask} className={`${loading ? 'cursor-not-allowed' : 'cursor-pointer'} bg-blue-800 hover:bg-blue-700 text-sm p-2 rounded-sm text-white w-11/12 mx-auto  block my-5`}>Edit</button>
         </div>
-        <Link to={'/'} className='mt-10 bg-black text-white rounded-md cursor-pointer p-2 w-1/12 text-center font-bold'>Back To Tasks</Link>
+        <Link to={'/'} className='mt-10 bg-black text-white rounded-md cursor-pointer p-2 xs:w-9/12 lg:w-1/12 text-center font-bold'>Back To Tasks</Link>
         {res && <Alert severity="success" className='absolute xs:text-xs md:text-sm top-10 xs:w-9/12 md:w-3/12 xs:left-10 md:right-10 text-center flex items-center justify-center'>{res}</Alert>}
     </div>
   )
