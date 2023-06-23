@@ -46,7 +46,7 @@ export const Home = () => {
             <h1 className='xs:text-4xl lg:text-5xl text-center mb-7'>Task Manager</h1>
             <div className='flex items-center justify-start'>
                 <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder='e.g. wash dishes' className='border-solid border-green-700 border-[1px] p-2 w-9/12 bg-black/10 rounded-md outline-none mr-3' />
-                <button disabled={bool} onClick={AddTask} className={`${loading ? 'bg-zinc-400' : 'bg-blue-800'} w-3/12 text-center flex items-center justify-center  hover:bg-blue-700 text-sm font-Quicksand p-2 hover:tracking-wider rounded-md text-white`}>{bool  ? 'Adding Task...' : 'Submit'}</button>
+                <button disabled={bool} onClick={AddTask} className={`${loading ? 'bg-zinc-400' : 'bg-blue-800'} w-3/12 text-center flex items-center justify-center  hover:bg-blue-700 text-sm font-Quicksand p-2 hover:tracking-wider rounded-md text-white`}>{bool  ? <ScaleLoader color={'#fff'} loading={loading} size={10} aria-label="Loading Spinner" data-testid="loader" /> : 'Submit'}</button>
             </div>
         </div>
         {
