@@ -5,6 +5,7 @@ import { AxiosRequest } from '../utils/utils'
 import ScaleLoader from 'react-spinners/ScaleLoader'
 export const Home = () => {
   let [loading, setLoading] = useState(false);
+  let bool = false;
   let [color, setColor] = useState("#000");
   let [error,setError] = useState('')
   let [name,setName] = useState('')
@@ -21,10 +22,12 @@ export const Home = () => {
   let AddTask = async () => {
       try {
         setLoading(true)
+        bool = true
         let res = await AxiosRequest.post('/',{name : name});
         setName('')
         res.data && setLoading(false)
         allTask()
+        bool = false
       } catch (error) {
         setError(error.response.data)
         error.response.data === 'please fill the fields!' ? Setter(1000) : Setter(3000)
@@ -42,7 +45,7 @@ export const Home = () => {
             <h1 className='xs:text-4xl lg:text-5xl text-center mb-7'>Task Manager</h1>
             <div className='flex items-center justify-start'>
                 <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder='e.g. wash dishes' className='border-solid border-green-700 border-[1px] p-2 w-9/12 bg-black/10 rounded-md outline-none mr-3' />
-                <button disabled={loading} onClick={AddTask} className={`${loading ? 'bg-zinc-400' : 'bg-blue-800'} w-3/12 text-center flex items-center justify-center  hover:bg-blue-700 text-sm font-Quicksand p-2 hover:tracking-wider rounded-md text-white`}>{loading  ? 'Adding Task...' : 'Submit'}</button>
+                <button disabled={loading} onClick={AddTask} className={`${loading ? 'bg-zinc-400' : 'bg-blue-800'} w-3/12 text-center flex items-center justify-center  hover:bg-blue-700 text-sm font-Quicksand p-2 hover:tracking-wider rounded-md text-white`}>{bool  ? 'Adding Task...' : 'Submit'}</button>
             </div>
         </div>
         {
