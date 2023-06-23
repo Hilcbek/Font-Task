@@ -51,7 +51,7 @@ export const Home = () => {
             )) : <h1 className='bg-black text-white p-1 rounded-md mx-auto w-fit text-2xl font-Quicksand font-bold flex items-center justify-center'>No Task!<ImSad2 className='ml-2 text-[#ffde34]' /></h1>)
         }
         <h1 className='text-center font-Quicksand text-xs p-2 font-bold shadow-white shadow-xl text-red-700 w-8/12 mx-auto rounded-md mt-5'>{error && error}</h1>
-        <h1 className='text-xs text-center flex items-center justify-center font-bold font-Quicksand'>All rights are reserved! &copy;2023G.C</h1>
+        <h1 className='text-xs text-center flex items-center justify-center font-bold font-Quicksand'>All rights are reserved! &copy;2023G.C @Bekas LTC.</h1>
     </div>
   )
 }
