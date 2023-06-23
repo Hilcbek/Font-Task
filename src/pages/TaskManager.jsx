@@ -22,7 +22,7 @@ export const TaskManager = ({task}) => {
   return (
     <ul className='flex items-start justify-start flex-col w-full my-1'>
         <li className='flex p-4 shadow-2xl shadow-zinc-400 bg-white rounded-sm my-1  items-center justify-between w-full'>
-           <div className='flex items-center justify-start shadow-lg shadow-zinc-200 w-10/12 p-1 rounded-sm'>
+           <div className='flex items-start justify-start shadow-lg shadow-zinc-200 w-10/12 p-1 rounded-sm'>
                 <BsFillPatchCheckFill className='text-green-800' />
                 <p className={`${task.completed ? 'break-words line-through font-light' : 'line-none'} font-bold ml-2 xs:text-sm sm:text-lg font-Quicksand`}>{task.name}</p>
            </div>
