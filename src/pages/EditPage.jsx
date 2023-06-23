@@ -16,14 +16,14 @@ export const EditPage = () => {
         setLoading(true)
         let res = await AxiosRequest.get(`/${location}`)
         res.data && setLoading(false)
-        setEdit(res.data)
+        setEdit(res.data.name)
         setChecked(res.data.completed)
       }
       allTask()
     },[location])
   let EditTask = async () => {
       let res = await AxiosRequest.put(`/${location}`,{
-        name : edit.name,
+        name : edit,
         completed : checked
       })
       setRes(res.data)
@@ -35,12 +35,13 @@ export const EditPage = () => {
       navigate('/')
     },2000)
   }
+  console.log(edit.name)
   return (
     <div className='w-full font-Quicksand flex items-center justify-center flex-col'>
         <div className='shadow-2xl flex items-center justify-center flex-col bg-white mt-[5%] xs:w-11/12 md:w-4/12 p-3 rounded-md shadow-white'>
             {loading ? <ScaleLoader color={color} loading={loading} size={20} aria-label="Loading Spinner" data-testid="loader" /> : (<><h1 className='text-3xl font-Roboto text-center underline mb-5'>Edit Task</h1>
             <h1 className='font-bold text-xl w-11/12'>Task ID: <span className='ml-5 text-sm'>{location}</span></h1>
-            <input value={edit.name} onChange={(e) => setEdit(e.target.value)} type="text" placeholder='e.g. wash dishes' className='my-3 rounded-md p-2 w-11/12 border-solid border-green-800 border-[1px] bg-black/10 outline-none mr-3' />
+            <input value={edit} onChange={(e) => setEdit(e.target.value)} type="text" placeholder='e.g. wash dishes' className='my-3 rounded-md p-2 w-11/12 border-solid border-green-800 border-[1px] bg-black/10 outline-none mr-3' />
             <div className='flex items-center justify-start w-11/12'>
               <label htmlFor='check' className='cursor-pointer font-bold text-xl'>Completed: </label>
               <input checked={checked} onChange={(e) => setChecked(e.currentTarget.checked)} type="checkbox" name="" className='ml-2 cursor-pointer' id="check" />
