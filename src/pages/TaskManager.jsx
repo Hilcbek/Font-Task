@@ -26,7 +26,7 @@ export const TaskManager = ({task}) => {
                 <BsFillPatchCheckFill className='text-green-800' />
                 <p className={`${task.completed ? 'break-words line-through font-light' : 'line-none'} font-bold ml-2 text-lg font-Quicksand`}>{task.name}</p>
            </div>
-            <ul className='flex ml-3 shadow-lg shadow-zinc-300 items-center justify-center p-1 rounded-md w-2/12'>
+            <ul className='flex ml-3 shadow-lg shadow-zinc-300 items-center justify-center p-1 rounded-md xs:w-3/12 lg:w-2/12'>
                 <Link to={`/edit/${task._id}`} className='p-1 rounded-md hover:bg-black/10 cursor-pointer border-solid border-[1px] hover:border-green-800 group'><MdEdit className='group-hover:text-green-800' /></Link>
                 <li onClick={DeleteTask} className='p-1 ml-2 rounded-md hover:bg-black/10 cursor-pointer border-solid border-[1px] hover:border-red-800 group'><MdDelete className='group-hover:text-red-800' /></li>
             </ul>
