@@ -1,5 +1,5 @@
 import axios from 'axios'
 export let AxiosRequest = axios.create({
-    baseURL : 'http://localhost:5000/api/task',
+    baseURL : 'https://task-manager-5gcj.onrender.com/api/task',
     withCredentials : true
 });
